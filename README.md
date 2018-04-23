@@ -1,4 +1,4 @@
-ThinkPHP 5.1
+﻿ThinkPHP 5.1
 ===============
 
 ThinkPHP5.1对底层架构做了进一步的改进，减少依赖，其主要特性包括：
@@ -154,7 +154,4 @@ All rights reserved。
 ThinkPHP® 商标和著作权所有者为上海顶想信息科技有限公司。
 
 更多细节参阅 [LICENSE.txt](LICENSE.txt)
-# tp5
-# tp5
-# tp5
-# tp5
+

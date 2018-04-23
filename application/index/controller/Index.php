@@ -9,7 +9,11 @@ class Index
     }
 
     public function hello($name = 'ThinkPHP5')
-    {
+    {   
+    	
         return 'hello,' . $name;
+    }
+    public function show(){
+    	echo 1;
     }
 }

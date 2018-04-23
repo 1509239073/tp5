@@ -14,6 +14,7 @@ Route::get('think', function () {
 });
 
 Route::get('hello/:name', 'index/hello');
+Route::rule('show/:id','index/show','GET|POST')->name('new_show');
 
 return [
 
