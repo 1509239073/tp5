@@ -1,7 +1,8 @@
 <?php
 namespace app\index\controller;
+use think\Controller;
 
-class Index
+class Index extends Controller
 {
     public function index()
     {
@@ -10,7 +11,7 @@ class Index
 
     public function hello($name = 'ThinkPHP5')
     {   
-    	
+    	$this->success('新增成功', 'Index/show');
         return 'hello,' . $name;
     }
     public function show(){
