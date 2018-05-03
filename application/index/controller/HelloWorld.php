@@ -3,9 +3,9 @@ namespace app\index\controller;
 use think\Controller;
 /**
  * protected $beforeActionList = [
-'first', //在执行所有方法前都会执行first方法
-'second' => ['except'=>'hello'], //除hello方法外的方法执行前都要先执行second方法
-'three' => ['only'=>'hello,data'], //在hello/data方法执行前先执行three方法
+    'first', //在执行所有方法前都会执行first方法
+    'second' => ['except'=>'hello'], //除hello方法外的方法执行前都要先执行second方法
+    'three' => ['only'=>'hello,data'], //在hello/data方法执行前先执行three方法
 ];
  */
 class HelloWorld extends Controller
