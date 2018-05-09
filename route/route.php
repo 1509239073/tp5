@@ -13,9 +13,14 @@ Route::get('think', function () {
     return 'hello,ThinkPHP5!';
 });
 
-Route::get('hello/:name', 'index/hello');
-Route::rule('show/:id','index/show','GET|POST')->name('new_show');
+Route::rule('hello/:name', 'index/hello');
+// Route::rule('cacheInfo/:name', 'index/cacheInfo')->cache(
+// 	[ 
+// 		'cacheInfo/:name/:page', 60
+// 	]);
 
+Route::rule('show/:id','index/show','GET|POST')->name('new_show');
+Route::resource('blog','index/Blog');
 return [
 
 ];

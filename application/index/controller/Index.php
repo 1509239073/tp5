@@ -1,6 +1,10 @@
 <?php
 namespace app\index\controller;
 use think\Controller;
+// use think\Request;
+use think\Db;
+
+use think\facade\Request;
 
 class Index extends Controller
 {
@@ -11,10 +15,71 @@ class Index extends Controller
 
     public function hello($name = 'ThinkPHP5')
     {   
-    	$this->success('新增成功', 'Index/show');
-        return 'hello,' . $name;
+    	// $this->success('新增成功', 'Index/show');
+        // return url('new_read',['id'=>10]);
+        return $this->fetch();
     }
-    public function show(){
-    	echo 1;
+    public function show($id=0){
+        dump($id);
+    	// $this->fetch();
+    }
+    public function b(){
+        // echo 1;
+        // echo Request::url(true);
+        // echo Request::rootDomain();
+        // return $request->name;
+        echo Request::ext();
+        dump(Request::header());
+        // return Request::param('name');
+        // return request()->param('name');
+        // return $this->request->param('name');
+    }
+    //请求缓存
+    //请求缓存仅对GET请求有效
+    public function cacheInfo(){
+        echo Request::param('name');
+    }
+    public function response(){
+        $data = ['name' => 'thinkphp', 'status' => '1'];
+        return redirect('new_show',['id'=>'thinkphp']);
+        // return json($data);
+    }
+    // public function index()
+    // {
+    //     // 判断session完成标记是否存在
+    //     if (session('?complete')) {
+    //         // 删除session
+    //         session('complete', null);
+    //         return '重定向完成，回到原点!';
+    //     } else {
+    //         // 记住当前地址并重定向
+    //         return redirect('hello')
+    //             ->with('name', 'thinkphp')
+    //             ->remember();
+    //     }
+    // }
+
+    // public function hello()
+    // {
+    //     $name = session('name');
+    //     return 'hello,' . $name . '! <br/><a href="/tp5/public/index/index/restore">点击回到来源地址</a>';
+    // }
+
+    // public function restore()
+    // {
+    //     // 设置session标记完成
+    //     session('complete', true);
+    //     // 跳回之前的来源地址
+    //     dump(redirect()->restore());
+    //     exit;
+    //     return redirect()->restore();
+    // }
+    public function mysqlLog(){
+        $user = Db::table('users')->where('id',1)->findOrFail();
+        dump($user);
+        $user = Db::table('users')->where('id',2)->value('name');
+        //DB::table();全称呼
+        dump($user);
+
     }
 }
