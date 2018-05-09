@@ -80,6 +80,8 @@ class Index extends Controller
         $user = Db::table('users')->where('id',2)->value('name');
         //DB::table();全称呼
         dump($user);
+        //json 数据查询
+        exit;
 
     }
 }
