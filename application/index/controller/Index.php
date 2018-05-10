@@ -23,7 +23,7 @@ class Index extends Controller
         dump($id);
     	// $this->fetch();
     }
-    public function b(){
+    public function request(){
         // echo 1;
         // echo Request::url(true);
         // echo Request::rootDomain();
@@ -75,13 +75,37 @@ class Index extends Controller
     //     return redirect()->restore();
     // }
     public function mysqlLog(){
-        $user = Db::table('users')->where('id',1)->findOrFail();
+        // $user = Db::table('users')->where('id',1)->findOrFail();
+        // dump($user);
+        // $user = Db::table('users')->where('id',2)->value('name');
+        // //DB::table();全称呼
+        // dump($user);
+        // //json 数据查询
+        // exit;
+        // $usersIdList = Db::name('users')->field('id,name')->select();
+        // foreach ($usersIdList as $key => $value) {
+        //     $data['json'] = [
+        //         'email'    => $value['name'].'@qq.com',
+        //         'nickname' => $value['name'],
+
+        //     ];
+        //     Db::name('users')->where('id',$value['id'])->json(['json'])->update($data);
+            
+        // }
+        // 
+        // 
+        // $data['name'] = mt_rand(0,9999);
+        // $data['email'] =  $data['name'].'@qq.com';
+        // $data['json'] = [
+        //     'email'    => $data['name'].'@qq.com',
+        //     'nickname' => $data['name'],
+
+        // ];
+        // dump($data);        
+        // Db::name('users')->json(['json'])->insert($data);
+        $user = Db::name('users')->json(['json'])->where('json->nickname','allen.tai')->select();
         dump($user);
-        $user = Db::table('users')->where('id',2)->value('name');
-        //DB::table();全称呼
-        dump($user);
-        //json 数据查询
-        exit;
+        
 
     }
 }
