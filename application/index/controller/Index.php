@@ -105,6 +105,7 @@ class Index extends Controller
         // Db::name('users')->json(['json'])->insert($data);
         $user = Db::name('users')->json(['json'])->where('json->nickname','allen.tai')->select();
         dump($user);
+        echo "string";
         
 
     }
