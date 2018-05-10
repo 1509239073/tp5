@@ -83,6 +83,7 @@ class Index extends Controller
         // //json 数据查询
         // exit;
         // $usersIdList = Db::name('users')->field('id,name')->select();
+
         // foreach ($usersIdList as $key => $value) {
         //     $data['json'] = [
         //         'email'    => $value['name'].'@qq.com',
@@ -103,9 +104,9 @@ class Index extends Controller
         // ];
         // dump($data);        
         // Db::name('users')->json(['json'])->insert($data);
-        $user = Db::name('users')->json(['json'])->where('json->nickname','allen.tai')->select();
-        dump($user);
-        echo "string";
+        // $user = Db::name('users')->json(['json'])->where('json->nickname','chris.zhu')->select();
+        // dump($user);
+        // echo "string";
         
 
     }
