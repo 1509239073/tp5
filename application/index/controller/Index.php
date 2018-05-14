@@ -1,8 +1,10 @@
 <?php
 namespace app\index\controller;
 use think\Controller;
+use think\Loader;
 // use think\Request;
 use think\Db;
+use app\index\model\User as UserModel;
 
 use think\facade\Request;
 
@@ -28,8 +30,8 @@ class Index extends Controller
         // echo Request::url(true);
         // echo Request::rootDomain();
         // return $request->name;
-        echo Request::ext();
-        dump(Request::header());
+        // echo Request::ext();
+        // dump(Request::header());
         // return Request::param('name');
         // return request()->param('name');
         // return $this->request->param('name');
@@ -109,5 +111,20 @@ class Index extends Controller
         // echo "string";
         
 
+    }
+    public function modelUse(){
+        // $user = new UserModel;
+        // $user = model('User');
+        // $info =  $user->userSearch();
+        // $info = Loader::model('User')->userSearch();
+        // dump($info);
+        $user = new UserModel;
+        // $user->name = 'THINKPHP2';
+        // $user->user_name = 'THINKPHP2';
+        // $user->pwd = md5('123456');
+        // $user->create_time = 1111;
+        $info = $user->find(1);
+        dump($info); // thinkphp
+        
     }
 }
