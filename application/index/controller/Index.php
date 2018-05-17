@@ -127,4 +127,17 @@ class Index extends Controller
         dump($info); // thinkphp
         
     }
+    public function views(){
+        //当前模块/view/当前控制器名（小写）/当前操作（小写）.html
+        // $content = '{$name}-{$email}';
+        // return $this->display($content, ['name' => 'thinkphp', 'email' => 'thinkphp@qq.com']);
+        //display 直接渲染
+        return view('', ['name' => 'thinkphp']);
+        return $this->fetch();
+        //模版表达式的定义规则为：模块@控制器/操作
+        // {include file="public/header" /} // 包含头部模版header
+        // {include file="public/menu" /} // 包含菜单模版menu
+        // {include file="blue/public/menu" /} // 包含blue主题下面的menu模版
+
+    }
 }
