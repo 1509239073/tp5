@@ -2,6 +2,8 @@
 namespace app\index\controller;
 use think\Controller;
 use think\Loader;
+use think\facade\Log;
+
 // use think\Request;
 use think\Db;
 use app\index\model\User as UserModel;
@@ -126,6 +128,13 @@ class Index extends Controller
         $info = $user->find(1);
         dump($info); // thinkphp
         
+    }
+    public function Log(){
+        // dump(Request::host());
+        // Log::key('127.0.0.1');
+        Log::write('测试日志信息，这是警告级别，并且实时写入','notice');
+        // dump(Log::info('测试日志信息'));
+
     }
     public function views(){
         //当前模块/view/当前控制器名（小写）/当前操作（小写）.html
