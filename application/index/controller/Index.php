@@ -3,15 +3,27 @@ namespace app\index\controller;
 use think\Controller;
 use think\Loader;
 use think\facade\Log;
-
 // use think\Request;
 use think\Db;
 use app\index\model\User as UserModel;
-
+use think\facade\Config;
+use think\facade\Cache;
 use think\facade\Request;
-
+/*
+ * @class index接口
+ * */
 class Index extends Controller
-{
+{   
+    /**
+     * @title 接口1
+     *
+     * @param name 是 string 名字参数的说明
+     * @param age 否 int 年龄参数的说明
+     * @return  返回数据实例
+     * @example 调用示例
+     * @method POST http://www.yizukeji.cn/
+     * @author xing <fbiufo@vip.qq.com>
+     */
     public function index()
     {
         return '<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #fff; font-family: "Century Gothic","Microsoft yahei"; color: #333;font-size:18px;} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:) </h1><p> ThinkPHP V5.1<br/><span style="font-size:30px">12载初心不改（2006-2018） - 你值得信赖的PHP框架</span></p></div><script type="text/javascript" src="https://tajs.qq.com/stats?sId=64890268" charset="UTF-8"></script><script type="text/javascript" src="https://e.topthink.com/Public/static/client.js"></script><think id="eab4b9f840753f8e7"></think>';
@@ -148,5 +160,30 @@ class Index extends Controller
         // {include file="public/menu" /} // 包含菜单模版menu
         // {include file="blue/public/menu" /} // 包含blue主题下面的menu模版
 
+    }
+    public function api(){
+        // dump(WEB_PATH);
+        // dump(__JS__);
+        // dump(Config::get('view_replace_str.js'));
+        // Cache::clear();
+        $path = '../demo/*.php';
+        // $path = '../application/index/controller/*.php';
+        $res = glob($path);
+        // unset($res[1]);
+        // dump($res);
+        // exit;
+        $result = array();
+        if($res){
+            foreach($res as $k=>$v){
+                $str = file_get_contents($v);  
+                $result[] = parsing($str);
+
+            }
+        }
+        // dump($result['0']['api']);
+        // show_bug($result);
+        // return json($result);
+        $this->assign('data',$result);
+        return $this->fetch();
     }
 }

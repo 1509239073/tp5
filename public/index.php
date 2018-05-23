@@ -9,8 +9,12 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
+
 // [ 应用入口文件 ]
 namespace think;
+// 网站域名
+
+define('SITE_URL', 'http://127.0.0.1/tp5');  
 
 // 加载基础文件
 require __DIR__ . '/../thinkphp/base.php';
